@@ -1,0 +1,13 @@
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\bin\Debug\DataBase\renamer.db
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\bin\Debug\Episode-Renamer.exe.config
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\bin\Debug\Episode-Renamer.exe
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\bin\Debug\Episode-Renamer.pdb
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\bin\Debug\System.Data.SQLite.dll
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\bin\Debug\System.Data.SQLite.xml
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\bin\Debug\System.Data.SQLite.dll.config
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\obj\Debug\Episode_Renamer.Forms.frmConfig.resources
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\obj\Debug\Episode_Renamer.Properties.Resources.resources
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\obj\Debug\Episode-Renamer.csproj.GenerateResource.Cache
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\obj\Debug\Episode-Renamer.exe
+c:\users\walter01\documents\visual studio 2017\Projects\Episode-Renamer\Episode-Renamer\obj\Debug\Episode-Renamer.pdb
+C:\Users\walter01\Documents\Visual Studio 2017\Projects\Episode-Renamer\Episode-Renamer\obj\Debug\Episode-Renamer.csprojResolveAssemblyReference.cache
