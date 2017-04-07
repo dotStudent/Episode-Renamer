@@ -42,9 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_DBSelect = new System.Windows.Forms.Button();
             this.tbDBPath = new System.Windows.Forms.TextBox();
-            this.tabInfo = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabRegistry = new System.Windows.Forms.TabPage();
             this.gbFolderHandler = new System.Windows.Forms.GroupBox();
             this.btnUnregFolder = new System.Windows.Forms.Button();
@@ -52,6 +49,9 @@
             this.gBFileHandler = new System.Windows.Forms.GroupBox();
             this.btnUnregFile = new System.Windows.Forms.Button();
             this.btnRegFile = new System.Windows.Forms.Button();
+            this.tabInfo = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btn_save = new System.Windows.Forms.Button();
@@ -72,10 +72,10 @@
             this.tabFileExtensions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFileTypes)).BeginInit();
             this.tabSettings.SuspendLayout();
-            this.tabInfo.SuspendLayout();
             this.tabRegistry.SuspendLayout();
             this.gbFolderHandler.SuspendLayout();
             this.gBFileHandler.SuspendLayout();
+            this.tabInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -112,9 +112,9 @@
             this.label1.Location = new System.Drawing.Point(142, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 28);
+            this.label1.Size = new System.Drawing.Size(217, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "TV Show Renamer";
+            this.label1.Text = "Episode Renamer";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // splitContainer2
@@ -250,39 +250,6 @@
             this.tbDBPath.Size = new System.Drawing.Size(456, 20);
             this.tbDBPath.TabIndex = 9;
             // 
-            // tabInfo
-            // 
-            this.tabInfo.Controls.Add(this.richTextBox1);
-            this.tabInfo.Controls.Add(this.label2);
-            this.tabInfo.Location = new System.Drawing.Point(4, 22);
-            this.tabInfo.Margin = new System.Windows.Forms.Padding(2);
-            this.tabInfo.Name = "tabInfo";
-            this.tabInfo.Padding = new System.Windows.Forms.Padding(2);
-            this.tabInfo.Size = new System.Drawing.Size(500, 290);
-            this.tabInfo.TabIndex = 3;
-            this.tabInfo.Text = "Info";
-            this.tabInfo.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(2, 2);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(496, 286);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 71);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
-            this.label2.TabIndex = 0;
-            this.label2.UseCompatibleTextRendering = true;
-            // 
             // tabRegistry
             // 
             this.tabRegistry.Controls.Add(this.gbFolderHandler);
@@ -356,6 +323,39 @@
             this.btnRegFile.UseVisualStyleBackColor = true;
             this.btnRegFile.Click += new System.EventHandler(this.btnRegFile_Click);
             // 
+            // tabInfo
+            // 
+            this.tabInfo.Controls.Add(this.richTextBox1);
+            this.tabInfo.Controls.Add(this.label2);
+            this.tabInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.tabInfo.Name = "tabInfo";
+            this.tabInfo.Padding = new System.Windows.Forms.Padding(2);
+            this.tabInfo.Size = new System.Drawing.Size(500, 290);
+            this.tabInfo.TabIndex = 3;
+            this.tabInfo.Text = "Info";
+            this.tabInfo.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(496, 286);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 71);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.TabIndex = 0;
+            this.label2.UseCompatibleTextRendering = true;
+            // 
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -374,7 +374,7 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.btn_save);
             this.splitContainer3.Size = new System.Drawing.Size(508, 25);
-            this.splitContainer3.SplitterDistance = 405;
+            this.splitContainer3.SplitterDistance = 406;
             this.splitContainer3.SplitterWidth = 3;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -395,7 +395,7 @@
             this.btn_save.Location = new System.Drawing.Point(0, 0);
             this.btn_save.Margin = new System.Windows.Forms.Padding(2);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(100, 25);
+            this.btn_save.Size = new System.Drawing.Size(99, 25);
             this.btn_save.TabIndex = 0;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
@@ -426,7 +426,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmConfig";
-            this.Text = "Renamer Config";
+            this.Text = "Episode Renamer Config";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -443,11 +443,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvFileTypes)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.tabSettings.PerformLayout();
-            this.tabInfo.ResumeLayout(false);
-            this.tabInfo.PerformLayout();
             this.tabRegistry.ResumeLayout(false);
             this.gbFolderHandler.ResumeLayout(false);
             this.gBFileHandler.ResumeLayout(false);
+            this.tabInfo.ResumeLayout(false);
+            this.tabInfo.PerformLayout();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel1.PerformLayout();
             this.splitContainer3.Panel2.ResumeLayout(false);

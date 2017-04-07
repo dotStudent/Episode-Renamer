@@ -117,6 +117,69 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>This Tool is intended to Rename TV Show Episodes by cutting off known Parts of the File
+
+In this config Tool you can define the parts which should be cutted off and define the used File Extensions for TV Shows
+The renaming itself works by Command Line. You can prefer if the Filename or Foldername should be used for the final Filename if both is available
+
+Example from Filename:
+	Filename:
+	this.is.the.PrefixS01E01.This.is.the.Filename.this.is.the.Suffix.mkv
+
+	Prefix:
+	-&gt;this.is.the.Prefix&lt;- Cut off automatically, because is before Episode Information
+
+	Suffix:
+	-&gt;.this.is.the.Suffix&lt;- This is cutted off when you added this Text to the Database before
+
+	Final Filename:
+	-&gt;S01E01.This.is.the.Filename.mkv&lt;- This is the final Filename
+
+Example from Foldername:
+
+	FolderName:
+	C:\TVShows\this.is.the.PrefixS01E01.This.is.the.Filename.this.is.the.Suffix\i.am.the.filename.mkv
+
+	Filename:
+	-&gt;S01E01.This.is.the.Filename.mkv&lt;- This is the final Filename
+
+Usage:
+renamerV3.exe C:\moviefolder\movie.mkv /preferfilename=true /preferfoldername=true
+
+----------------------------------------------------------------------------
+reg File (See Tab "Registry" for automatic Register/Unregister and Checking)
+----------------------------------------------------------------------------
+* Use Reg-File To activate Right Click on Files:
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Episode-Renamer]
+@="&amp;Episode-Renamer"
+"Icon"="shell32.dll,43"
+
+[HKEY_CLASSES_ROOT\*\shell\Episode-Renamer\command]
+@="C:\\Temp\\Test\\Episode-Renamer.exe %1"
+
+* Use Reg-File to activate RightClick on Folders:
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Episode-Renamer]
+@="&amp;Episode-Renamer"
+"Icon"="shell32.dll,43"
+
+[HKEY_CLASSES_ROOT\*\shell\Episode-Renamer\command]
+@="C:\\Temp\\Test\\Episode-Renamer.exe %1"
+</value>
+  </data>
+  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="contextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>157, 17</value>
+  </metadata>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>306, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
