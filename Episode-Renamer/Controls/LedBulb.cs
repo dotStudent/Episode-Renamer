@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+// Source: https://www.codeproject.com/Articles/114122/A-Simple-Vector-Based-LED-User-Control
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;

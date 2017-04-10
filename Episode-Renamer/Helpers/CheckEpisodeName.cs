@@ -10,9 +10,42 @@ namespace Episode_Renamer
     public class CheckEpisodeName
     {
         #region Public Constants
-        public const string strRegex = @"(?i:S)\d{1,2}(?i:E)\d{1,2}\w+.*"; //Regex String to receive Episode Information and everything behind
+        // Was used before value was in Database
+        //public static string strRegex = @"(?i:S)\d{1,2}(?i:E)\d{0,1}\w+.*"; //Regex String to receive Episode Information and everything behind
         #endregion
-
+        public string TestRegEx { get; set; }
+        public string TestPrefixCut
+        {
+            get
+            {
+                if (TestRegEx != null && TestRegEx != "")
+                {
+                    if (Regex.IsMatch(TestName, TestRegEx)) //Check if s0(0)e0(0) is in Filename
+                    {
+                        var value = Regex.Match(TestName, TestRegEx); //Cut Part before matching string
+                        string improvedfilename = episodeImprove(value.ToString(), true); //Send to Function to improve Episode Information
+                        return improvedfilename; //Return Improved and Cutted Filename
+                    }
+                }
+                return "No RegEx Set or Applicable";
+            }
+            set
+            {
+                TestName = value;
+            }
+        }
+        public string TestSuffixCut
+        {
+            get
+            {
+                return cutSuffix(TestName);
+            }
+            set
+            {
+                TestName = value;
+            }
+        }
+        private string TestName = "";
         #region Constructor
         public CheckEpisodeName()
         {
@@ -38,7 +71,7 @@ namespace Episode_Renamer
             bool episodeInFile = false; //True if Episodename is in File
             bool episodeInFolder = false; //True if Episodename is in Folder and can be used
 
-            if (Regex.IsMatch(input.EpisodeFile, strRegex)) //Check if s00e00 is in Filename
+            if (Regex.IsMatch(input.EpisodeFile, Data.defaultRegex)) //Check if s00e00 is in Filename
             {
                 episodeInFile = true;
             }
@@ -46,7 +79,7 @@ namespace Episode_Renamer
             int countEpisodepath = 0;
             foreach (string episode in input.EpisodeSplitPath) //Search for Usable Information in Foldernames
             {
-                if (Regex.IsMatch(episode, strRegex) && input.NameMustComeFromFile == false) //Check if s00e00 is in Filename, Also ignore when more than one Movieobject is in the same Folder
+                if (Regex.IsMatch(episode, Data.defaultRegex) && input.NameMustComeFromFile == false) //Check if s00e00 is in Filename, Also ignore when more than one Movieobject is in the same Folder
                 {
                     //Episode is in path
                     countEpisodepath++;
@@ -137,9 +170,9 @@ namespace Episode_Renamer
         }
         private string cutPrefix(string filename) //Remove Everything before the Episode Information 
         {
-            if (Regex.IsMatch(filename, strRegex)) //Check if s0(0)e0(0) is in Filename
+            if (Regex.IsMatch(filename, Data.defaultRegex)) //Check if s0(0)e0(0) is in Filename
             {
-                var value = Regex.Match(filename, strRegex); //Cut Part before matching string
+                var value = Regex.Match(filename, Data.defaultRegex); //Cut Part before matching string
                 string improvedfilename = episodeImprove(value.ToString(), true); //Send to Function to improve Episode Information
                 return improvedfilename; //Return Improved and Cutted Filename
             }

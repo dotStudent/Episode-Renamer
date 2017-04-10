@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Episode-Renamer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ALPLA")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Episode-Renamer")]
-[assembly: AssemblyCopyright("Copyright © ALPLA 2017")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

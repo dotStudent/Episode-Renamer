@@ -38,6 +38,13 @@
             this.dgvPrefix = new System.Windows.Forms.DataGridView();
             this.tabFileExtensions = new System.Windows.Forms.TabPage();
             this.dgvFileTypes = new System.Windows.Forms.DataGridView();
+            this.tabRegEx = new System.Windows.Forms.TabPage();
+            this.cBSuffix = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.tbTest = new System.Windows.Forms.TextBox();
+            this.dgvRegEx = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_DBSelect = new System.Windows.Forms.Button();
@@ -58,6 +65,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tbTestResult = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrefix)).BeginInit();
             this.tabFileExtensions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFileTypes)).BeginInit();
+            this.tabRegEx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegEx)).BeginInit();
             this.tabSettings.SuspendLayout();
             this.tabRegistry.SuspendLayout();
             this.gbFolderHandler.SuspendLayout();
@@ -144,6 +154,7 @@
             // 
             this.tbInfo.Controls.Add(this.tabSuffix);
             this.tbInfo.Controls.Add(this.tabFileExtensions);
+            this.tbInfo.Controls.Add(this.tabRegEx);
             this.tbInfo.Controls.Add(this.tabSettings);
             this.tbInfo.Controls.Add(this.tabRegistry);
             this.tbInfo.Controls.Add(this.tabInfo);
@@ -207,6 +218,89 @@
             this.dgvFileTypes.TabIndex = 0;
             this.dgvFileTypes.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFileTypes_CellMouseUp);
             // 
+            // tabRegEx
+            // 
+            this.tabRegEx.Controls.Add(this.tbTestResult);
+            this.tabRegEx.Controls.Add(this.cBSuffix);
+            this.tabRegEx.Controls.Add(this.label5);
+            this.tabRegEx.Controls.Add(this.btnTest);
+            this.tabRegEx.Controls.Add(this.tbTest);
+            this.tabRegEx.Controls.Add(this.dgvRegEx);
+            this.tabRegEx.Controls.Add(this.label4);
+            this.tabRegEx.Location = new System.Drawing.Point(4, 22);
+            this.tabRegEx.Name = "tabRegEx";
+            this.tabRegEx.Size = new System.Drawing.Size(500, 290);
+            this.tabRegEx.TabIndex = 5;
+            this.tabRegEx.Text = "RegEx";
+            this.tabRegEx.UseVisualStyleBackColor = true;
+            // 
+            // cBSuffix
+            // 
+            this.cBSuffix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cBSuffix.AutoSize = true;
+            this.cBSuffix.Location = new System.Drawing.Point(380, 239);
+            this.cBSuffix.Name = "cBSuffix";
+            this.cBSuffix.Size = new System.Drawing.Size(108, 17);
+            this.cBSuffix.TabIndex = 20;
+            this.cBSuffix.Text = "Include Suffix DB";
+            this.cBSuffix.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(19, 210);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 24);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Test Regex";
+            // 
+            // btnTest
+            // 
+            this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTest.Location = new System.Drawing.Point(380, 259);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 18;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // tbTest
+            // 
+            this.tbTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbTest.Location = new System.Drawing.Point(23, 237);
+            this.tbTest.Name = "tbTest";
+            this.tbTest.Size = new System.Drawing.Size(351, 20);
+            this.tbTest.TabIndex = 17;
+            // 
+            // dgvRegEx
+            // 
+            this.dgvRegEx.AllowUserToResizeRows = false;
+            this.dgvRegEx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvRegEx.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRegEx.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvRegEx.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegEx.Location = new System.Drawing.Point(23, 44);
+            this.dgvRegEx.Name = "dgvRegEx";
+            this.dgvRegEx.Size = new System.Drawing.Size(455, 150);
+            this.dgvRegEx.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(145, 10);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(200, 24);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "RegEx Management";
+            // 
             // tabSettings
             // 
             this.tabSettings.Controls.Add(this.label3);
@@ -233,7 +327,7 @@
             // 
             // btn_DBSelect
             // 
-            this.btn_DBSelect.Location = new System.Drawing.Point(418, 89);
+            this.btn_DBSelect.Location = new System.Drawing.Point(418, 69);
             this.btn_DBSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btn_DBSelect.Name = "btn_DBSelect";
             this.btn_DBSelect.Size = new System.Drawing.Size(56, 19);
@@ -244,7 +338,7 @@
             // 
             // tbDBPath
             // 
-            this.tbDBPath.Location = new System.Drawing.Point(19, 67);
+            this.tbDBPath.Location = new System.Drawing.Point(19, 42);
             this.tbDBPath.Margin = new System.Windows.Forms.Padding(2);
             this.tbDBPath.Name = "tbDBPath";
             this.tbDBPath.Size = new System.Drawing.Size(456, 20);
@@ -374,7 +468,7 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.btn_save);
             this.splitContainer3.Size = new System.Drawing.Size(508, 25);
-            this.splitContainer3.SplitterDistance = 406;
+            this.splitContainer3.SplitterDistance = 409;
             this.splitContainer3.SplitterWidth = 3;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -395,7 +489,7 @@
             this.btn_save.Location = new System.Drawing.Point(0, 0);
             this.btn_save.Margin = new System.Windows.Forms.Padding(2);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(99, 25);
+            this.btn_save.Size = new System.Drawing.Size(96, 25);
             this.btn_save.TabIndex = 0;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
@@ -416,6 +510,16 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // tbTestResult
+            // 
+            this.tbTestResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbTestResult.Location = new System.Drawing.Point(23, 261);
+            this.tbTestResult.Name = "tbTestResult";
+            this.tbTestResult.ReadOnly = true;
+            this.tbTestResult.Size = new System.Drawing.Size(351, 20);
+            this.tbTestResult.TabIndex = 21;
             // 
             // frmConfig
             // 
@@ -441,6 +545,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrefix)).EndInit();
             this.tabFileExtensions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFileTypes)).EndInit();
+            this.tabRegEx.ResumeLayout(false);
+            this.tabRegEx.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegEx)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.tabSettings.PerformLayout();
             this.tabRegistry.ResumeLayout(false);
@@ -487,6 +594,14 @@
         private System.Windows.Forms.GroupBox gBFileHandler;
         private System.Windows.Forms.Button btnUnregFolder;
         private System.Windows.Forms.Button btnUnregFile;
+        private System.Windows.Forms.TabPage tabRegEx;
+        private System.Windows.Forms.CheckBox cBSuffix;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.TextBox tbTest;
+        private System.Windows.Forms.DataGridView dgvRegEx;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbTestResult;
     }
 }
 

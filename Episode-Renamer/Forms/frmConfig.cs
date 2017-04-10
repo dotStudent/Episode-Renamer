@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bulb;
+using Episode_Renamer.Helpers;
 
 namespace Episode_Renamer.Forms
 {
@@ -39,6 +40,12 @@ namespace Episode_Renamer.Forms
                     dgvFileTypes.DataSource = Data.LoadExtensions(); //Bind DatagridView on Datatable from DB
                     dgvFileTypes.Columns[0].Visible = false; //Hide Column0 (Index)
                     dgvFileTypes.Columns[1].HeaderCell.Value = "Extension";
+
+                    dgvRegEx.DataSource = Data.LoadRegex();
+                    dgvRegEx.Columns[0].Visible = false; //Hide Column0 (Index)
+                    dgvRegEx.Columns[1].HeaderCell.Value = "RegEx";
+                    dgvRegEx.Columns[2].HeaderCell.Value = "Description";
+                    dgvRegEx.Columns[3].HeaderCell.Value = "IsDefault";
                 }
                 else
                 {
@@ -47,7 +54,7 @@ namespace Episode_Renamer.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                ShowMessagebox(ex.ToString());
                 dbProblem = true;
             }
         }
@@ -56,13 +63,30 @@ namespace Episode_Renamer.Forms
         #region Buttons
         private void btn_save_Click(object sender, EventArgs e)
         {
-            if (dbProblem == false)
+            int ok = CheckDataTableForDefault(Data.LoadRegex(), 3, "1");
+            if (ok == 1 && dbProblem == false)
             {
                 Data.SaveSuffix(); //Save Changes to DB
+
+                Properties.Settings.Default.dbpath = tbDBPath.Text;
+                Properties.Settings.Default.Save();
+                //this.Close();
             }
-            Properties.Settings.Default.dbpath = tbDBPath.Text;
-            Properties.Settings.Default.Save();
-            this.Close();
+            else if (ok == 0)
+            {
+                ShowMessagebox("You need to select one Default Value in the Regex Grid");
+            }
+            else if (ok == -1)
+            {
+                ShowMessagebox("You need to have at least one Regex Value");
+            }
+            else if (ok > 1)
+            {
+                ShowMessagebox("Only one default Value in Regex Grid is allowed");
+            }
+
+
+
         }
         private void btn_DBSelect_Click(object sender, EventArgs e)
         {
@@ -95,6 +119,32 @@ namespace Episode_Renamer.Forms
         {
             lblStatus.Text = RegistryOperations.DeleteHandlerInRegistry(false);
             CheckFolderHandler();
+        }
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+
+            
+            CheckEpisodeName cen = new CheckEpisodeName();
+            string regex = GetSelectedRegex();
+
+            if (regex != "")
+            {
+                string NewTestFileName = "";
+                cen.TestRegEx = regex;
+                cen.TestPrefixCut = tbTest.Text;
+                NewTestFileName = cen.TestPrefixCut;
+
+                if (cBSuffix.Checked == true)
+                {
+                    cen.TestSuffixCut = NewTestFileName;
+                    NewTestFileName = cen.TestSuffixCut;
+                }
+                tbTestResult.Text = NewTestFileName;
+            }
+            else
+            {
+                tbTestResult.Text = "No Regex selected";
+            }
         }
         #endregion
 
@@ -240,7 +290,59 @@ namespace Episode_Renamer.Forms
                 btnunreg.Enabled = false;
             }
         }
-        #endregion
+        private int CheckDataTableForDefault(DataTable dt, int ColID, string Value)
+        {
+            int count = 0;
+            if (dt.Columns.Count > ColID)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row[ColID].ToString() == Value)
+                    {
+                        count++;
+                    }
+                }
+                if (count == 0)
+                {
+                    return 0;
+                }
+                else if (count == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return count;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        private void ShowMessagebox(string Message)
+        {
+            using (DialogCenteringService centeringService = new DialogCenteringService(this)) // center message box
+            {
+                MessageBox.Show(this, Message);
+            }
+        }
+        private string GetSelectedRegex()
+        {
+            int index = dgvRegEx.CurrentCell.RowIndex;
+            DataGridViewRow row = new DataGridViewRow();
+            row = dgvRegEx.Rows[index];
+            string regex = row.Cells[1].Value.ToString();
+            if (regex == null || regex == "")
+            {
+                return "";
+            }
+            else
+            {
+                return regex;
+            }
 
+        }
+        #endregion
     }
 }
