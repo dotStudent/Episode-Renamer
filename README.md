@@ -18,6 +18,8 @@ Suffix: ->.this.is.the.Suffix<- This is cutted off when you added this Text to 
 
 Final Filename: ->S01E01.This.is.the.Filename.mkv<- This is the final FilenameExample 
 
-From Foldername: FolderName: C:\TVShows\this.is.the.PrefixS01E01.This.is.the.Filename.this.is.the.Suffix\i.am.the.filename.mkv 
+Example From Foldername:
+
+FolderName: C:\TVShows\this.is.the.PrefixS01E01.This.is.the.Filename.this.is.the.Suffix\i.am.the.filename.mkv 
 
 Filename: ->S01E01.This.is.the.Filename.mkv<- This is the final FilenameUsage:Episode-Renamer.exe C:\moviefolder\movie.mkv /preferfilename=true /preferfoldername=true
